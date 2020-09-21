@@ -43,6 +43,40 @@ public class Job {
     }
 
 
+    // Custom toString method to print Job objects
+
+    @Override
+    public String toString() {
+
+        if (name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+            return "\n" + "OOPS! This job does not seem to exist." + "\n";
+        }
+        if(name == "") {
+            setName("Data not available");
+        }
+        if (employer.getValue() == "") {
+            setEmployer(new Employer("Data not available"));
+        }
+        if (location.getValue() == "") {
+            setLocation(new Location("Data not available"));
+        }
+        if (positionType.getValue() == "") {
+            setPositionType(new PositionType("Data not available"));
+        }
+        if (coreCompetency.getValue() == "") {
+            setCoreCompetency(new CoreCompetency("Data not available"));
+        }
+
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency +
+                "\n";
+    }
+
     // Getters and Setters
 
     public int getId() {
